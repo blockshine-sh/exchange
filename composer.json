@@ -1,5 +1,5 @@
 {
-    "name": "blockchainexorg/exchange",
+    "name": "exchange-sh/exchange",
     "description": "用于集成各个交易所对接",
     "type": "library",
     "require": {
