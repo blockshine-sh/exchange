@@ -1,0 +1,22 @@
+{
+    "name": "blockchainexorg/exchange",
+    "description": "用于集成各个交易所对接",
+    "type": "library",
+    "require": {
+        "php": ">=5.4",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "tigerxu",
+            "email": "1053049433@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "ExchangeCenter\\": "src/"
+        }
+    }
+}
