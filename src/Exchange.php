@@ -14,8 +14,6 @@ class Exchange
 {
     private $exchange = null;
     private $symbol = null;
-    private $class = null;
-    private $params = [];
     private $options = [];
 
     public function setExchange($exchange)
