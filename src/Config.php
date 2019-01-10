@@ -66,4 +66,21 @@ return [
         'pairs' => 'https://api.cointiger.com/exchange/trading/api/v2/currencys',
         'timeout' => 60,
     ],
+    'huobi' => [
+        'url' => 'https://api.huobipro.com',
+        'ticker' => 'market/tickers',
+        'pairs' => 'v1/common/symbols',
+        'timeout' => 60,
+    ],
+    'gateio' => [
+        'url' => 'https://data.gateio.io',
+        'ticker' => 'api2/1/tickers',
+        'timeout' => 60,
+    ],
+    'upbit' => [
+        'url' => 'https://api.upbit.com',
+        'ticker' => 'v1/ticker?markets=',
+        'pairs' => 'v1/market/all',
+        'timeout' => 60,
+    ],
 ];
