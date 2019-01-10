@@ -39,4 +39,19 @@ class Helper
         }
         return $array;
     }
+    
+  
+    /**
+     * 科学计数转换成正常数字
+     * @param string $sct 科学计数字符，1.117E-5
+     * @param numeric $scale 保留小数位
+     */
+    public static function sctnToNumeric($sct, $scale = 0){
+        if (false !== stripos($sct, 'e')) {
+            $num = explode('e', strtolower($sct));
+            return bcmul($num[0], bcpow(10, intval($num[1]), $scale), $scale);
+        } else {
+            return $sct;
+        }      
+    }
 }
