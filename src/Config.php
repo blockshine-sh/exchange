@@ -83,6 +83,12 @@ return [
         'pairs' => 'v1/market/all',
         'timeout' => 60,
     ],
+    'rightbtc' => [
+        'url' => 'https://www.rightbtc.com',
+        'ticker' => 'api/public/tickers',
+        'pairs' => 'api/public/trading_pairs',
+        'timeout' => 60,
+    ],
     'bitz' => [
         'url' => 'https://apiv2.bitz.com/Market/',
         'ticker' => 'ticker',

@@ -29,7 +29,7 @@ class Ticker extends ExchangeBase
             );
             if (!empty($this->data)) {
                 $promises[] = $this->data;
-            }echo \GuzzleHttp\json_encode($this->data).PHP_EOLgit ;
+            }
             //sleep(1);
         }
         $this->data = $promises;
