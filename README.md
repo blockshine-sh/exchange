@@ -9,6 +9,7 @@ blockchainexorg/exchange用于集成对接各个主流交易所的开放接口
 ```
 coinsbank、oex、idcm、fatbtc、topbtc、coinsuper、mountaintoken、singbitx、hotbit、cointiger
 
+其中coinsbank由于接口访问频次限制，ticker接口每5秒钟访问一次，总获取时间大概90秒
 ```
 
 调用示例：

@@ -23,16 +23,16 @@ class Ticker extends ExchangeBase
 
         $promises = [];
         foreach ($pairs as $pair) {
-            $promises[] = [
-                'index' => $pair['digital_currency'] . '_' . $pair['market_currency'],
-                'url' => sprintf('%s/%s%s-%s', $this->config['url'], $this->config['ticker'], $pair['market_currency'], $pair['digital_currency']),
-            ];
+            $this->request('GET',
+                sprintf('%s%s-%s', $this->config['ticker'], $pair['market_currency'], $pair['digital_currency']),
+                $options
+            );
+            if (!empty($this->data)) {
+                $promises[] = $this->data;
+            }echo \GuzzleHttp\json_encode($this->data).PHP_EOLgit ;
+            //sleep(1);
         }
-
-        $ret = $this->multiRequest($promises);var_dump($ret);die;
-        if ($ret === false) {
-            Helper::fail($this->error);
-        }
+        $this->data = $promises;
         return $this->convertData();
     }
 
@@ -40,20 +40,29 @@ class Ticker extends ExchangeBase
     {
         $tickers = [];
         if (!empty($this->data)) {
-            foreach ($this->data as $pair => $datum) {
-                $data = current($datum);
-                $symbol = explode('_', $pair);
+            foreach ($this->data as $item) {
+
                 $ticker = new TickerModel();
-                $ticker->digital_currency = $symbol[0];
-                $ticker->market_currency = $symbol[1];
-                $ticker->open = $data['o'];
-                $ticker->high = $data['h'];
-                $ticker->low = $data['l'];
-                $ticker->close = $data['c'];
-                $ticker->amount = $data['v'];
-                $ticker->vol = $data['vq'];
-                $ticker->timestamp = floor($data['date'] / 1000);
-                $tickers[$pair] = Helper::toArray($ticker);
+                $data = current($item);
+
+                list (
+                    $marketCurrency,
+                    $digitalCurrency
+                    ) = explode('-', $data['market']);
+
+                $ticker->digital_currency = $digitalCurrency;
+                $ticker->market_currency = $marketCurrency;
+
+                $ticker->open       = $data['trade_price'];
+                $ticker->high       = $data['high_price'];
+                $ticker->low        = $data['low_price'];
+                $ticker->close      = $data['prev_closing_price'];
+                $ticker->amount     = $data['acc_trade_volume_24h'];
+                $ticker->vol        = $data['acc_trade_price_24h'];
+                $ticker->timestamp  = substr($data['timestamp'], 0, 10);
+                $ticker->price_pcnt = $data['signed_change_price'];
+
+                $tickers["{$digitalCurrency}_{$marketCurrency}"] = Helper::toArray($ticker);
             }
         }
         return $tickers;

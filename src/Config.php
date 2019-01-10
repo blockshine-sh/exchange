@@ -83,4 +83,22 @@ return [
         'pairs' => 'v1/market/all',
         'timeout' => 60,
     ],
+    'bitz' => [
+        'url' => 'https://apiv2.bitz.com/Market/',
+        'ticker' => 'ticker',
+        'pairs' => 'symbolList',
+        'timeout' => 60,
+    ],
+    'digifinex' => [
+        'url' => 'https://openapi.digifinex.com/v2/',
+        'ticker' => 'ticker',
+        'pairs' => '',
+        'timeout' => 60,
+    ],
+    'crex24' => [
+        'url' => 'https://api.crex24.com/v2/public/',
+        'ticker' => 'tickers',
+        'pairs' => '',
+        'timeout' => 60,
+    ],    
 ];

@@ -23,17 +23,29 @@ class Ticker extends ExchangeBase
 
         $promises = [];
         foreach ($pairs as $pair) {
-            $promises[] = [
-                'index' => $pair['digital_currency'] . '_' . $pair['market_currency'],
-                'url' => $this->config['url'] . sprintf($this->config['ticker'], $pair['digital_currency'] . $pair['market_currency']),
-            ];
+            $this->request('GET', sprintf($this->config['ticker'], $pair['digital_currency'] . $pair['market_currency']), $options);
+            if (!empty($this->data) && empty($this->data['code'])) {
+                $promises[$pair['digital_currency'] . '_' . $pair['market_currency']] = $this->data;
+            }
+            //由于coinsbank接口访问频率限制 5秒钟请求一次
+            sleep(5);
         }
-
-        $ret = $this->multiRequest($promises);
-        if ($ret === false) {
-            Helper::fail($this->error);
-        }
+        $this->data = $promises;
         return $this->convertData();
+
+//        $promises = [];
+//        foreach ($pairs as $pair) {
+//            $promises[] = [
+//                'index' => $pair['digital_currency'] . '_' . $pair['market_currency'],
+//                'url' => $this->config['url'] . sprintf($this->config['ticker'], $pair['digital_currency'] . $pair['market_currency']),
+//            ];
+//        }
+//
+//        $ret = $this->multiRequest($promises);
+//        if ($ret === false) {
+//            Helper::fail($this->error);
+//        }
+//        return $this->convertData();
     }
 
     private function convertData()
@@ -53,6 +65,7 @@ class Ticker extends ExchangeBase
                 $ticker->amount = $data['v'];
                 $ticker->vol = $data['vq'];
                 $ticker->timestamp = floor($data['date'] / 1000);
+                $ticker->price_pcnt = bcdiv($ticker->close - $ticker->open, $ticker->open, 4);
                 $tickers[$pair] = Helper::toArray($ticker);
             }
         }
