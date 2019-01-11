@@ -66,6 +66,40 @@ return [
         'pairs' => 'https://api.cointiger.com/exchange/trading/api/v2/currencys',
         'timeout' => 60,
     ],
+    'huobi' => [
+        'url' => 'https://api.huobipro.com',
+        'ticker' => 'market/tickers',
+        'pairs' => 'v1/common/symbols',
+        'timeout' => 60,
+    ],
+    'gateio' => [
+        'url' => 'https://data.gateio.io',
+        'ticker' => 'api2/1/tickers',
+        'timeout' => 60,
+    ],
+    'upbit' => [
+        'url' => 'https://api.upbit.com',
+        'ticker' => 'v1/ticker?markets=',
+        'pairs' => 'v1/market/all',
+        'timeout' => 60,
+    ],
+    'rightbtc' => [
+        'url' => 'https://www.rightbtc.com',
+        'ticker' => 'api/public/tickers',
+        'pairs' => 'api/public/trading_pairs',
+        'timeout' => 60,
+    ],
+    'liqui' => [
+        'url' => 'https://api.liqui.io',
+        'ticker' => 'api/3/ticker',
+        'pairs' => 'api/3/info',
+        'timeout' => 60,
+    ],
+    'bitmart' => [
+        'url' => 'https://openapi.bitmart.com',
+        'ticker' => 'v2/ticker',
+        'timeout' => 60,
+    ],
     'bitz' => [
         'url' => 'https://apiv2.bitz.com/Market/',
         'ticker' => 'ticker',
