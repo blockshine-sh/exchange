@@ -42,7 +42,6 @@ class Ticker extends ExchangeBase
             $ticker->amount = $datum['Volume'];
             $ticker->vol = $datum['Turnover'];
             $ticker->timestamp = time();
-            $ticker->price_pcnt = bcdiv($ticker->close - $ticker->open, $ticker->open, 4);
             $ticker_data[$symbol[0] . '_' . $symbol[1]] = Helper::toArray($ticker);
         }
         return $ticker_data;

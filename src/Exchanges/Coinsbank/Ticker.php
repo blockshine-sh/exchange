@@ -65,7 +65,6 @@ class Ticker extends ExchangeBase
                 $ticker->amount = $data['v'];
                 $ticker->vol = $data['vq'];
                 $ticker->timestamp = floor($data['date'] / 1000);
-                $ticker->price_pcnt = bcdiv($ticker->close - $ticker->open, $ticker->open, 4);
                 $tickers[$pair] = Helper::toArray($ticker);
             }
         }

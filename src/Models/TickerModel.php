@@ -23,6 +23,5 @@ class TickerModel
     public $bid1   = 0.00000000;  //买一价
     public $ask1   = 0.00000000;  //卖一价
     public $timestamp = 0;       //时间戳
-    public $price_pcnt = 0;     //涨跌幅
 
 }
