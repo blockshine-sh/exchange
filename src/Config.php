@@ -83,5 +83,11 @@ return [
         'ticker' => 'tickers',
         'pairs' => '',
         'timeout' => 60,
+    ],
+    'exmo' => [
+        'url' => 'https://api.exmo.com/v1/',
+        'ticker' => 'ticker',
+        'pairs' => '',
+        'timeout' => 60,
     ],    
 ];
