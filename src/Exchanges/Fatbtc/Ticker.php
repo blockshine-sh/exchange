@@ -43,7 +43,6 @@ class Ticker extends ExchangeBase
             $ticker->amount = $datum['volume'];
             $ticker->vol = $datum['amount'];
             $ticker->timestamp = floor($datum['timestamp']/1000);
-            $ticker->price_pcnt = bcdiv($ticker->close - $ticker->open, $ticker->open, 4);
             if(!empty($datum['bis1'])) $ticker->bid1 = $datum['bis1'][0];
             if(!empty($datum['ask1'])) $ticker->ask1 = $datum['ask1'][0];
             $ticker_data[$symbol[0].'_'.$symbol[1]] = Helper::toArray($ticker);

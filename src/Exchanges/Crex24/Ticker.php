@@ -45,9 +45,9 @@ class Ticker extends ExchangeBase
             $ticker->ask1 = $datum['ask'];
             $ticker->vol = $datum['quoteVolume'];
             $ticker->timestamp = strtotime($datum['timestamp']);
-            $ticker->price_pcnt = bcdiv($datum['percentChange'], 100, 4);
 
             $ticker_data[$_symbol] = Helper::toArray($ticker);
+            $ticker_data[$_symbol]['price_pcnt'] = bcdiv($datum['percentChange'], 100, 4);
         }
 
         return $ticker_data;

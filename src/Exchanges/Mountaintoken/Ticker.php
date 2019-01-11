@@ -44,7 +44,6 @@ class Ticker extends ExchangeBase
             $ticker->bid1 = $datum['ticker']['buy'];
             $ticker->ask1 = $datum['ticker']['sell'];
             $ticker->timestamp = $datum['at'];
-            $ticker->price_pcnt = bcdiv($ticker->close - $ticker->open, $ticker->open, 4);
 
             $ticker_data[$symbol[0] . '_' . $symbol[1]] = Helper::toArray($ticker);
         }

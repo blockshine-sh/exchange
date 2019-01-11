@@ -58,7 +58,6 @@ class Ticker extends ExchangeBase
                         $ticker->bid1 = $datum['highestBid'];
                         $ticker->ask1 = $datum['lowestAsk'];
                         $ticker->timestamp = floor($datum['id'] / 1000);
-                        $ticker->price_pcnt = bcdiv($ticker->close - $ticker->open, $ticker->open, 4);
                         $tickers[$pair] = Helper::toArray($ticker);
                         break;
                     }
