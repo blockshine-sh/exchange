@@ -89,6 +89,17 @@ return [
         'pairs' => 'api/public/trading_pairs',
         'timeout' => 60,
     ],
+    'liqui' => [
+        'url' => 'https://api.liqui.io',
+        'ticker' => 'api/3/ticker',
+        'pairs' => 'api/3/info',
+        'timeout' => 60,
+    ],
+    'bitmart' => [
+        'url' => 'https://openapi.bitmart.com',
+        'ticker' => 'v2/ticker',
+        'timeout' => 60,
+    ],
     'bitz' => [
         'url' => 'https://apiv2.bitz.com/Market/',
         'ticker' => 'ticker',
