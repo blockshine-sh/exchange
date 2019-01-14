@@ -75,7 +75,7 @@ class Ticker extends ExchangeBase
             $ticker->timestamp              = time();
             $ticker->bid1                   = $item['highestBid'];
             $ticker->ask1                   = $item['lowestAsk'];
-            $ticker->price_pcnt             = $this->getPricePcnt($ticker->open, $ticker->close);
+            //$ticker->price_pcnt             = $this->getPricePcnt($ticker->open, $ticker->close);
             $ticker_data["{$digitalCurrency}_{$marketCurrency}"] = Helper::toArray($ticker);
         }
         return $ticker_data;

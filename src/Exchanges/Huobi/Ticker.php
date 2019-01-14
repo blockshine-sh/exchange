@@ -77,7 +77,7 @@ class Ticker extends ExchangeBase
             $ticker->amount                 = $item['amount'];
             $ticker->vol                    = $item['vol'];
             $ticker->timestamp              = $timestamp;
-            $ticker->price_pcnt             = $item['close'] - $item['open'];
+            //$ticker->price_pcnt             = $item['close'] - $item['open'];
 
             $ticker_data["{$digitalCurrency}_{$marketCurrency}"] = Helper::toArray($ticker);
         }

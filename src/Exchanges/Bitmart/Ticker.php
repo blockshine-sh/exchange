@@ -80,7 +80,7 @@ class Ticker extends ExchangeBase
             $ticker->digital_currency       = $digitalCurrency;
             $ticker->market_currency        = $marketCurrency;
             $ticker->open                   = $this->getOpen($close, $fluctuation);
-            $ticker->high                   = $item['highest_price'];
+            $ticker->high                   = null;
             $ticker->low                    = $item['lowest_price'];
             $ticker->close                  = $close;
             $ticker->amount                 = $item['volume'];
@@ -88,7 +88,7 @@ class Ticker extends ExchangeBase
             $ticker->timestamp              = time();
             $ticker->bid1                   = $item['bid_1'];
             $ticker->ask1                   = $item['ask_1'];
-            $ticker->price_pcnt             = $ticker->open - $ticker->close;
+            //$ticker->price_pcnt             = $ticker->open - $ticker->close;
             $ticker_data["{$digitalCurrency}_{$marketCurrency}"] = Helper::toArray($ticker);
         }
         return $ticker_data;

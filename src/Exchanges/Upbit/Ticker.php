@@ -60,7 +60,7 @@ class Ticker extends ExchangeBase
                 $ticker->amount     = $data['acc_trade_volume_24h'];
                 $ticker->vol        = $data['acc_trade_price_24h'];
                 $ticker->timestamp  = substr($data['timestamp'], 0, 10);
-                $ticker->price_pcnt = $data['signed_change_price'];
+                //$ticker->price_pcnt = $data['signed_change_price'];
 
                 $tickers["{$digitalCurrency}_{$marketCurrency}"] = Helper::toArray($ticker);
             }

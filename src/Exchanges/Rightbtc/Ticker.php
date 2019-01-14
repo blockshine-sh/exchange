@@ -70,14 +70,14 @@ class Ticker extends ExchangeBase
             $ticker->digital_currency       = $digitalCurrency;
             $ticker->market_currency        = $marketCurrency;
 
-            $ticker->open                   = $item['last24h'] / pow(10, 8);
+            $ticker->open                   = null;
             $ticker->high                   = $item['high'] / pow(10, 8);
             $ticker->low                    = $item['low'] / pow(10, 8);
             $ticker->close                  = $item['last'] / pow(10, 8);
             $ticker->amount                 = $item['vol24h'] / pow(10, 8);
             $ticker->vol                    = $ticker->amount * $ticker->close;
             $ticker->timestamp              = $timestamp;
-            $ticker->price_pcnt             = $ticker->close - $ticker->open;
+            //$ticker->price_pcnt             = $ticker->close - $ticker->open;
             $ticker->bid1                   = $item['buy'] / pow(10, 8);
             $ticker->ask1                   = $item['sell'] / pow(10, 8);
 
