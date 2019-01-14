@@ -49,7 +49,7 @@ class Ticker extends ExchangeBase
     private function convertData()
     {
 
-        $pairsMap = $this->getPairsMap(); var_dump($pairsMap);
+        $pairsMap = $this->getPairsMap();
 
         $ticker_data = [];
         foreach ($this->data['result'] as $item) {
