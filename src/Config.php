@@ -123,5 +123,11 @@ return [
         'ticker' => 'ticker',
         'pairs' => '',
         'timeout' => 60,
-    ],    
+    ], 
+    'coinbene' => [
+        'url' => 'http://api.coinbene.com/v1/market/',
+        'ticker' => 'ticker?symbol=all',
+        'pairs' => 'symbol',
+        'timeout' => 60,
+    ],     
 ];

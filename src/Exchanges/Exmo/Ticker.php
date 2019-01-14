@@ -39,10 +39,9 @@ class Ticker extends ExchangeBase
             $ticker->bid1 = $datum['buy_price'];
             $ticker->ask1 = $datum['sell_price'];
             $ticker->vol = $datum['vol_curr'];
-            $ticker->timestamp = $this->data['updated'];
+            $ticker->timestamp = $datum['updated'];
             
             $ticker_data[$_symbol] = Helper::toArray($ticker);
-            var_dump($ticker_data);exit;
         }
 
         return $ticker_data;
