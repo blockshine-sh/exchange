@@ -80,7 +80,7 @@ class Ticker extends ExchangeBase
             $ticker->digital_currency       = $digitalCurrency;
             $ticker->market_currency        = $marketCurrency;
             $ticker->open                   = $this->getOpen($close, $fluctuation);
-            $ticker->high                   = null;
+            $ticker->high                   = $item['highest_price'];
             $ticker->low                    = $item['lowest_price'];
             $ticker->close                  = $close;
             $ticker->amount                 = $item['volume'];
