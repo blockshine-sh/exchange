@@ -37,6 +37,10 @@ class Ticker extends ExchangeBase
         $ticker_data = [];
  
         foreach ($this->data['ticker'] as $datum) {
+            if (!isset($this->dataPairs[$datum['symbol']])){
+                continue;
+            }
+            
             $ticker = new TickerModel();
             $ticker->digital_currency = $this->dataPairs[$datum['symbol']]['digital_currency'];
             $ticker->market_currency = $this->dataPairs[$datum['symbol']]['market_currency'];
