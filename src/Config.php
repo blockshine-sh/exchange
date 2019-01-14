@@ -117,5 +117,17 @@ return [
         'ticker' => 'tickers',
         'pairs' => '',
         'timeout' => 60,
-    ],    
+    ],
+    'exmo' => [
+        'url' => 'https://api.exmo.com/v1/',
+        'ticker' => 'ticker',
+        'pairs' => '',
+        'timeout' => 60,
+    ], 
+    'coinbene' => [
+        'url' => 'http://api.coinbene.com/v1/market/',
+        'ticker' => 'ticker?symbol=all',
+        'pairs' => 'symbol',
+        'timeout' => 60,
+    ],     
 ];
