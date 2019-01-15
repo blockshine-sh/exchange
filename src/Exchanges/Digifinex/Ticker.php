@@ -30,8 +30,8 @@ class Ticker extends ExchangeBase
             $_symbol = strtoupper($symbol);
             $symbol = explode('_', $_symbol);
             $ticker = new TickerModel();
-            $ticker->digital_currency = $symbol[0];
-            $ticker->market_currency = $symbol[1];
+            $ticker->digital_currency = $symbol[1];
+            $ticker->market_currency = $symbol[0];
             $ticker->open = bcmul($datum['last'], (1 - $datum['change'] / 100), 8);
             $ticker->high = $datum['high'];
             $ticker->low = $datum['low'];
