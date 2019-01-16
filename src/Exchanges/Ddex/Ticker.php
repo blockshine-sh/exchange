@@ -49,7 +49,7 @@ class Ticker extends ExchangeBase
             $ticker->bid1                   = $item['bid'];
             $ticker->ask1                   = $item['ask'];
             $ticker_data["{$digitalCurrency}_{$marketCurrency}"] = Helper::toArray($ticker);
-        }var_dump($ticker_data);die;
+        }
         return $ticker_data;
     }
 
