@@ -50,7 +50,10 @@ class Ticker extends ExchangeBase
                 $ticker->amount = $data['volume'];
                 $ticker->vol = $data['quoteVolume'];
                 $ticker->timestamp = $datum['time'];
+                $ticker->ask1 = $data['askPrice'];
+                $ticker->bid1 = $data['bidPrice'];
                 $tickers[$pair] = Helper::toArray($ticker);
+                $tickers[$pair]['price_pcnt'] = bcdiv($data['priceChange24h'], 100, 4);
             }
         }
         return $tickers;
