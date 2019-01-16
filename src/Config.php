@@ -129,5 +129,11 @@ return [
         'ticker' => 'ticker?symbol=all',
         'pairs' => 'symbol',
         'timeout' => 60,
-    ],     
+    ],
+    'ddex' => [
+        'url' => 'https://api.ddex.io',
+        'ticker' => 'v3/markets/tickers',
+        'pairs' => '',
+        'timeout' => 60,
+    ],
 ];
