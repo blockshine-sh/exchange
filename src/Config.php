@@ -136,4 +136,10 @@ return [
         'pairs' => '',
         'timeout' => 60,
     ],
+    'exx' => [
+        'url' => 'https://api.exx.com/data/v1/',
+        'ticker' => 'tickers',
+        'pairs' => '',
+        'timeout' => 60,
+    ],    
 ];
