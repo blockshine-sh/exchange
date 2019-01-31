@@ -141,5 +141,17 @@ return [
         'ticker' => 'tickers',
         'pairs' => '',
         'timeout' => 60,
+    ],
+    'bitsane' => [
+        'url' => 'https://bitsane.com/api/public/',
+        'ticker' => 'ticker',
+        'pairs' => 'ticker',
+        'timeout' => 60,
+    ],
+    'b2bx' => [
+        'url' => 'https://api.b2bx.exchange/api/v1/b2trade/',
+        'ticker' => 'ticker',
+        'pairs' => 'ticker',
+        'timeout' => 60,
     ],    
 ];
