@@ -25,6 +25,7 @@ class Ticker extends ExchangeBase
     {
         $ticker_data = [];
         $ticker = new TickerModel();
+        $timestamp = time();
 
         foreach ($this->data as $datum) {
             if (preg_match('/([A-Z]+)(BTC|USDT|ETH|B2BX)/', $datum['Instrument'], $pairArr)) {                
@@ -38,7 +39,7 @@ class Ticker extends ExchangeBase
                 $ticker->bid1 = $datum['BestBid'];
                 $ticker->ask1 = $datum['BestOffer'];
                 $ticker->vol = $datum['LastTradedPx'] * $datum['Rolling24HrVolume'];
-                $ticker->timestamp = bcdiv($datum['TimeStamp'], 1000, 0);
+                $ticker->timestamp = $datum['TimeStamp'] > 0 && strlen($datum['TimeStamp']) == 13 ?bcdiv($datum['TimeStamp'], 1000, 0) : $timestamp;
 
                 $ticker_data[$pairArr['1'] . '_' . $pairArr['2']] = Helper::toArray($ticker);
                 $ticker_data[$pairArr['1'] . '_' . $pairArr['2']]['price_pcnt'] = bcdiv($datum['Rolling24HrPxChange'], 100, 4);
